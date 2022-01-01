@@ -123,9 +123,17 @@ export default class ProductsDetails extends Vue {
 <style scoped>
 .carousel-control-prev-icon {
     background-image: url(~@/assets/arrow-left-circle-fill.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    max-height: 1.5rem;
+    max-width: 1.5rem;
 }
 
 .carousel-control-next-icon {
     background-image: url(~@/assets/arrow-right-circle-fill.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    max-height: 1.5rem;
+    max-width: 1.5rem;
 }
 </style>

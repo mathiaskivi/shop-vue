@@ -11,7 +11,7 @@
                         <router-link class="btn btn-light mt-1" v-bind:to="'/Products/Details/' + nowAvailable.id">{{ getTranslations().views.home.index.takeALook }}</router-link>
                     </div>
                     <div class="col-6">
-                        <img v-bind:src="nowAvailable.pictures.length >= 1 ? nowAvailable.pictures[0].path : require('@/assets/placeholder.png')" class="float-right banner-image" alt="">
+                        <img v-bind:src="nowAvailable.pictures.length >= 1 ? nowAvailable.pictures[0].path : require('@/assets/placeholder.png')" class="float-right banner-image rounded-circle" alt="">
                     </div>
                 </div>
             </div>
@@ -27,13 +27,13 @@
                 <div v-for:="bestSeller in bestSellers" class="card mb-5" style="width: 12.5rem;">
                     <img class="p-2 card-image" v-bind:src="bestSeller.pictures.length >= 1 ? bestSeller.pictures[0].path : require('@/assets/placeholder.png')" alt="Card image cap">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title"><router-link class="stretched-link text-dark text-decoration-none" v-bind:to="'/Products/Details/' + bestSeller.id">{{ bestSeller.name }}</router-link></h5>
-                        <p class="card-text mt-auto">{{ bestSeller.price.toFixed(2) }}€</p>
+                        <h5 class="card-title mb-1"><router-link class="stretched-link text-dark text-decoration-none" v-bind:to="'/Products/Details/' + bestSeller.id">{{ bestSeller.name }}</router-link></h5>
+                        <p class="card-text mb-auto">{{ bestSeller.price.toFixed(2) }}€</p>
                         <template v-if="bestSeller.quantity >= 1">
-                            <a class="btn btn-dark" data-quantity="1" href="#" v-on:click.prevent="(event) => addEntry(bestSeller, parseInt(event.target.dataset.quantity))" style="position: relative; z-index: 1000;">{{ getTranslations().views.home.index.addToCart }}</a>
+                            <a class="btn btn-dark mt-3" data-quantity="1" href="#" v-on:click.prevent="(event) => addEntry(bestSeller, parseInt(event.target.dataset.quantity))" style="position: relative; z-index: 1000;">{{ getTranslations().views.home.index.addToCart }}</a>
                         </template>
                         <template v-else>
-                            <a class="btn btn-danger" href="#" style="position: relative; z-index: 1000;" v-on:click.prevent="">{{ getTranslations().views.home.index.outOfStock }}</a>
+                            <a class="btn btn-danger mt-3" href="#" style="position: relative; z-index: 1000;" v-on:click.prevent="">{{ getTranslations().views.home.index.outOfStock }}</a>
                         </template>
                     </div>
                 </div>

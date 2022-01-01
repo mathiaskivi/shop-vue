@@ -45,17 +45,17 @@
             <div class="text-center">
                 <div class="d-flex flex-wrap justify-content-between">
                     <div v-for="product in productsFiltered" v-bind:key="product" class="card mb-5" style="width: 12.5rem;">
-                        <img v-bind:src="product.pictures.length >= 1 ? product.pictures[0].path : require('@/assets/placeholder.png')" class="p-2 card-img-top" alt="">
+                        <img v-bind:src="product.pictures.length >= 1 ? product.pictures[0].path : require('@/assets/placeholder.png')" class="p-2 card-image" alt="">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">
+                            <h5 class="card-title mb-1">
                                 <router-link class="stretched-link text-dark text-decoration-none" v-bind:to="'/Products/Details/' + product.id">{{ product.name }}</router-link>
                             </h5>
-                            <p class="card-text mt-auto">{{ product.price.toFixed(2) }}€</p>
+                            <p class="card-text mb-auto">{{ product.price.toFixed(2) }}€</p>
                             <template v-if="product.quantity >= 1">
-                                <a class="btn btn-dark" data-quantity="1" href="#" v-on:click.prevent="(event) => addEntry(product, parseInt(event.target.dataset.quantity))" style="position: relative; z-index: 1000;">{{ getTranslations().views.products.index.addToCart }}</a>
+                                <a class="btn btn-dark mt-3" data-quantity="1" href="#" v-on:click.prevent="(event) => addEntry(product, parseInt(event.target.dataset.quantity))" style="position: relative; z-index: 1000;">{{ getTranslations().views.products.index.addToCart }}</a>
                             </template>
                             <template v-else>
-                                <a class="btn btn-danger" href="#" style="position: relative; z-index: 1000;" v-on:click.prevent="">{{ getTranslations().views.products.index.outOfStock }}</a>
+                                <a class="btn btn-danger mt-3" href="#" style="position: relative; z-index: 1000;" v-on:click.prevent="">{{ getTranslations().views.products.index.outOfStock }}</a>
                             </template>
                         </div>
                     </div>
